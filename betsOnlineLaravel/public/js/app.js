@@ -1800,11 +1800,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["event", "modal_mode"],
   data: function data() {
-    return {};
+    return {
+      bettingAmmount: ''
+    };
   },
   methods: {
     emitEvent: function emitEvent(event) {
@@ -2107,111 +2119,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       modalevent: '',
-      events: {
-        what: {
-          id: 1,
-          name: 'SemiFinal Libertadores',
-          date: "2019-01-01",
-          time: "12:00:00",
-          location: "Bombonera",
-          playerA: "Boca",
-          playerB: "River",
-          payoutA: 1.2,
-          payoutB: 1.4,
-          payoutDraw: 1.5,
-          resultA: "",
-          resultB: "",
-          status: true,
-          statusDetail: "Open for bets"
-        },
-        what2: {
-          id: 2,
-          name: 'Revancha Libertadores',
-          date: "2019-01-08",
-          time: "14:30:00",
-          location: "Ferro",
-          playerA: "Independiente",
-          playerB: "Rosario Central",
-          payoutA: 1.1,
-          payoutB: 1.3,
-          payoutDraw: 1.4,
-          resultA: "",
-          resultB: "",
-          status: true,
-          statusDetail: "Open for bets"
-        },
-        what3: {
-          id: 3,
-          name: 'Octavos Libertadores',
-          date: "2019-01-01",
-          time: "18:00:00",
-          location: "Estadio Unico",
-          playerA: "Lanus",
-          playerB: "Racing",
-          payoutA: 1.3,
-          payoutB: 1.1,
-          payoutDraw: 1.2,
-          resultA: "",
-          resultB: "",
-          status: true,
-          statusDetail: "Open for bets"
-        },
-        what4: {
-          id: 4,
-          name: 'Cuartos Libertadores',
-          date: "2019-02-04",
-          time: "12:00:00",
-          location: "Bombonera",
-          playerA: "Velez",
-          playerB: "Chacarita",
-          payoutA: 1.1,
-          payoutB: 1.6,
-          payoutDraw: 1.5,
-          resultA: "",
-          resultB: "",
-          status: true,
-          statusDetail: "Open for bets"
-        },
-        what5: {
-          id: 5,
-          name: 'Final Libertadores',
-          date: "2019-01-25",
-          time: "12:00:00",
-          location: "Monumental",
-          playerA: "Gimnasia",
-          playerB: "Ferro",
-          payoutA: 1.4,
-          payoutB: 1.5,
-          payoutDraw: 1.8,
-          resultA: "",
-          resultB: "",
-          status: true,
-          statusDetail: "Open for bets"
-        }
-      }
+      events: ''
     };
   },
   methods: {
     showEvent: function showEvent(event) {
-      // console.log(event);
       var modal = document.getElementById('modal');
       modal.style.display = "block";
       var span = document.getElementsByClassName("close")[0];
@@ -2221,10 +2138,18 @@ __webpack_require__.r(__webpack_exports__);
       };
 
       this.modalevent = event;
+    },
+    getEvents: function getEvents() {
+      var _this = this;
+
+      axios.get('eventList.json').then(function (response) {
+        _this.events = response.data;
+      });
     }
   },
   mounted: function mounted() {
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('push-event', this.showEvent);
+    this.getEvents();
   }
 });
 
@@ -55426,11 +55351,33 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
+      _c(
+        "b-input-group",
+        {
+          attrs: { size: "lg", prepend: "$", append: ".00" },
+          on: {
+            input: function($event) {
+              _vm.bettingAmmount = $event.target.value
+            }
+          }
+        },
+        [_c("b-form-input")],
+        1
+      ),
+      _vm._v(" "),
       _vm.event.playerA
         ? _c("p", { staticClass: "card-text" }, [
             _vm._v("\n  JugadorA: " + _vm._s(_vm.event.playerA)),
             _c("br"),
-            _vm._v("\n  payoutA: " + _vm._s(_vm.event.payoutA) + "\n")
+            _vm._v("\n  payoutA: " + _vm._s(_vm.event.payoutA)),
+            _c("br"),
+            _vm._v(
+              "\n  earn: " +
+                _vm._s(
+                  Math.round(_vm.bettingAmmount * _vm.event.payoutA * 100) / 100
+                ) +
+                "\n"
+            )
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -55438,7 +55385,15 @@ var render = function() {
         ? _c("p", { staticClass: "card-text" }, [
             _vm._v("\n  JugadorB: " + _vm._s(_vm.event.playerB)),
             _c("br"),
-            _vm._v("\n  payoutB: " + _vm._s(_vm.event.payoutB) + "\n")
+            _vm._v("\n  payoutB: " + _vm._s(_vm.event.payoutB)),
+            _c("br"),
+            _vm._v(
+              "\n  earn: " +
+                _vm._s(
+                  Math.round(_vm.bettingAmmount * _vm.event.payoutB * 100) / 100
+                ) +
+                "\n"
+            )
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -55663,14 +55618,8 @@ var render = function() {
               )
             ],
             1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "b-container",
-        [
+          ),
+          _vm._v(" "),
           _c(
             "b-card-group",
             { attrs: { columns: "" } },
@@ -67364,14 +67313,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/LandingComponent.vue ***!
   \******************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LandingComponent_vue_vue_type_template_id_76a13c11___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LandingComponent.vue?vue&type=template&id=76a13c11& */ "./resources/js/components/LandingComponent.vue?vue&type=template&id=76a13c11&");
 /* harmony import */ var _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LandingComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LandingComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -67401,7 +67351,7 @@ component.options.__file = "resources/js/components/LandingComponent.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/LandingComponent.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

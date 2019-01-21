@@ -5,6 +5,8 @@
   img-top
   img-fluid
 -->
+
+
 <b-card :title="event.name"
 tag="article"
 class="mb-2">
@@ -13,13 +15,21 @@ class="mb-2">
 <p v-if="event.date" class="card-text">
   Fecha: {{event.date}}
 </p>
+
+<b-input-group v-on:input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
+  <b-form-input></b-form-input>
+</b-input-group>
+
+
 <p v-if="event.playerA" class="card-text">
   JugadorA: {{event.playerA}}<br>
-  payoutA: {{event.payoutA}}
+  payoutA: {{event.payoutA}}<br>
+  earn: {{(Math.round((bettingAmmount * event.payoutA) * 100) / 100)}}
 </p>
 <p v-if="event.playerB" class="card-text">
   JugadorB: {{event.playerB}}<br>
-  payoutB: {{event.payoutB}}
+  payoutB: {{event.payoutB}}<br>
+  earn: {{(Math.round((bettingAmmount * event.payoutB) * 100) / 100)}}
 </p>
 <p v-if="event.payoutDraw" class="card-text">
   Empate: {{event.payoutDraw}}
@@ -41,7 +51,7 @@ export default {
   props: ["event", "modal_mode"],
   data () {
     return {
-
+      bettingAmmount:'',
     }
   },
   methods: {

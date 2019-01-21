@@ -59,6 +59,7 @@
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
+
   animation-duration: 0.3s;
 }
 
@@ -103,7 +104,7 @@
 
 <script>
 export default {
-  props:['modalevent', 'modal_mode'],
+  props:['modalevent'],
   mounted() {
     console.log('modal.')
   }

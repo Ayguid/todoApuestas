@@ -5,11 +5,11 @@
 
     <b-container>
       <b-row >
-        <b-col></b-col>
+        
         <b-col lg="12">
           <landingcarousel-component ></landingcarousel-component>
         </b-col>
-        <b-col></b-col>
+
       </b-row>
     </b-container>
 

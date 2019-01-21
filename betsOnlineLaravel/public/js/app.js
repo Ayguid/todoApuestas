@@ -1800,7 +1800,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["event", "modal_mode"],
@@ -1931,8 +1930,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['modalevent', 'modal_mode'],
+  props: ['modalevent'],
   mounted: function mounted() {
     console.log('modal.');
   }
@@ -22628,7 +22628,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal{\n  display: none;\n  position: fixed; /* Stay in place */\n  z-index: 120; /* Sit on top */\n  padding-top: 100px; /* Location of the box */\n  left: 0;\n  top: 0;\n  width: 100%; /* Full width */\n  height: 100%; /* Full height */\n  overflow: auto; /* Enable scroll if needed */\n  background-color: rgb(0,0,0); /* Fallback color */\n  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */\n  /* display: none; */\n}\n\n\n/* Modal Content (image) */\n.modal-content {\n  margin: auto;\n  display: block;\n  width: 50%;\n  max-width: 700px;\n}\n\n/* Caption of Modal Image */\n#caption {\n  margin: auto;\n  display: block;\n  width: 80%;\n  max-width: 700px;\n  text-align: center;\n  color: #ccc;\n  padding: 10px 0;\n  height: 150px;\n}\n\n/* Add Animation */\n.modal-content, #caption {\n  -webkit-animation-name: zoom;\n  -webkit-animation-duration: 0.6s;\n  animation-name: zoom;\n  -webkit-animation-duration: 0.3s;\n          animation-duration: 0.3s;\n}\n@-webkit-keyframes zoom {\nfrom {-webkit-transform:scale(0)}\nto {-webkit-transform:scale(1)}\n}\n@keyframes zoom {\nfrom {-webkit-transform:scale(0);transform:scale(0)}\nto {-webkit-transform:scale(1);transform:scale(1)}\n}\n\n/* The Close Button */\n.close {\n  position: absolute;\n  top: 15px;\n  right: 35px;\n  color: #f1f1f1;\n  font-size: 40px;\n  font-weight: bold;\n  transition: 0.3s;\n}\n.close:hover,\n.close:focus {\n  color: #bbb;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n/* 100% Image Width on Smaller Screens */\n@media only screen and (max-width: 700px){\n.modal-content {\n    width: 100%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.modal{\n  display: none;\n  position: fixed; /* Stay in place */\n  z-index: 120; /* Sit on top */\n  padding-top: 100px; /* Location of the box */\n  left: 0;\n  top: 0;\n  width: 100%; /* Full width */\n  height: 100%; /* Full height */\n  overflow: auto; /* Enable scroll if needed */\n  background-color: rgb(0,0,0); /* Fallback color */\n  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */\n  /* display: none; */\n}\n\n\n/* Modal Content (image) */\n.modal-content {\n  margin: auto;\n  display: block;\n  width: 50%;\n  max-width: 700px;\n}\n\n/* Caption of Modal Image */\n#caption {\n  margin: auto;\n  display: block;\n  width: 80%;\n  max-width: 700px;\n  text-align: center;\n  color: #ccc;\n  padding: 10px 0;\n  height: 150px;\n}\n\n/* Add Animation */\n.modal-content, #caption {\n  -webkit-animation-name: zoom;\n  -webkit-animation-duration: 0.6s;\n  animation-name: zoom;\n\n  -webkit-animation-duration: 0.3s;\n\n          animation-duration: 0.3s;\n}\n@-webkit-keyframes zoom {\nfrom {-webkit-transform:scale(0)}\nto {-webkit-transform:scale(1)}\n}\n@keyframes zoom {\nfrom {-webkit-transform:scale(0);transform:scale(0)}\nto {-webkit-transform:scale(1);transform:scale(1)}\n}\n\n/* The Close Button */\n.close {\n  position: absolute;\n  top: 15px;\n  right: 35px;\n  color: #f1f1f1;\n  font-size: 40px;\n  font-weight: bold;\n  transition: 0.3s;\n}\n.close:hover,\n.close:focus {\n  color: #bbb;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n/* 100% Image Width on Smaller Screens */\n@media only screen and (max-width: 700px){\n.modal-content {\n    width: 100%;\n}\n}\n", ""]);
 
 // exports
 
@@ -55422,35 +55422,29 @@ var render = function() {
       _vm._v(" "),
       _vm.event.date
         ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n        Fecha: " + _vm._s(_vm.event.date) + "\n       ")
+            _vm._v("\n  Fecha: " + _vm._s(_vm.event.date) + "\n")
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.event.playerA
         ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n        JugadorA: " + _vm._s(_vm.event.playerA)),
+            _vm._v("\n  JugadorA: " + _vm._s(_vm.event.playerA)),
             _c("br"),
-            _vm._v(
-              "\n        payoutA: " + _vm._s(_vm.event.payoutA) + "\n       "
-            )
+            _vm._v("\n  payoutA: " + _vm._s(_vm.event.payoutA) + "\n")
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.event.playerB
         ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n        JugadorB: " + _vm._s(_vm.event.playerB)),
+            _vm._v("\n  JugadorB: " + _vm._s(_vm.event.playerB)),
             _c("br"),
-            _vm._v(
-              "\n        payoutB: " + _vm._s(_vm.event.payoutB) + "\n       "
-            )
+            _vm._v("\n  payoutB: " + _vm._s(_vm.event.payoutB) + "\n")
           ])
         : _vm._e(),
       _vm._v(" "),
       _vm.event.payoutDraw
         ? _c("p", { staticClass: "card-text" }, [
-            _vm._v(
-              "\n        Empate: " + _vm._s(_vm.event.payoutDraw) + "\n       "
-            )
+            _vm._v("\n  Empate: " + _vm._s(_vm.event.payoutDraw) + "\n")
           ])
         : _vm._e(),
       _vm._v(" "),
@@ -55661,16 +55655,12 @@ var render = function() {
           _c(
             "b-row",
             [
-              _c("b-col"),
-              _vm._v(" "),
               _c(
                 "b-col",
                 { attrs: { lg: "12" } },
                 [_c("landingcarousel-component")],
                 1
-              ),
-              _vm._v(" "),
-              _c("b-col")
+              )
             ],
             1
           )

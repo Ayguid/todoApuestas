@@ -5,8 +5,6 @@
   img-top
   img-fluid
 -->
-
-
 <b-card :title="event.name"
 tag="article"
 class="mb-2">
@@ -16,24 +14,22 @@ class="mb-2">
   Fecha: {{event.date}}
 </p>
 
-<b-input-group v-on:input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
-  <b-form-input></b-form-input>
+<b-input-group @input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
+  <b-form-input type="number" min="0"></b-form-input>
 </b-input-group>
 
 
 <p v-if="event.playerA" class="card-text">
   JugadorA: {{event.playerA}}<br>
-  payoutA: {{event.payoutA}}<br>
-  earn: {{(Math.round((bettingAmmount * event.payoutA) * 100) / 100)}}
+  Indice: {{event.payoutA}}<br>
+  <b-alert show variant="primary">Ganancia: {{(Math.round((bettingAmmount * event.payoutA) * 100) / 100)}} $</b-alert>
 </p>
 <p v-if="event.playerB" class="card-text">
   JugadorB: {{event.playerB}}<br>
-  payoutB: {{event.payoutB}}<br>
-  earn: {{(Math.round((bettingAmmount * event.payoutB) * 100) / 100)}}
+  Indice: {{event.payoutB}}<br>
+  <b-alert show variant="primary">Ganancia: {{(Math.round((bettingAmmount * event.payoutB) * 100) / 100)}} $</b-alert>
 </p>
-<p v-if="event.payoutDraw" class="card-text">
-  Empate: {{event.payoutDraw}}
-</p>
+
 
 <b-button v-if="!modal_mode" variant="primary" @click="emitEvent(event)">Ver Mas</b-button>
 
@@ -60,6 +56,13 @@ export default {
     },
 
   },
+//   computed: {
+//   // a computed getter
+//   reversedMessage: function () {
+//     // `this` points to the vm instance
+//     return this.message.split('').reverse().join('')
+//   }
+// },
   mounted() {
     console.log('this.events')
   }

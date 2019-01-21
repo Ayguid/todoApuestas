@@ -1806,10 +1806,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["event", "modal_mode"],
@@ -1823,6 +1819,13 @@ __webpack_require__.r(__webpack_exports__);
       _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('push-event', event);
     }
   },
+  //   computed: {
+  //   // a computed getter
+  //   reversedMessage: function () {
+  //     // `this` points to the vm instance
+  //     return this.message.split('').reverse().join('')
+  //   }
+  // },
   mounted: function mounted() {
     console.log('this.events');
   }
@@ -55361,46 +55364,58 @@ var render = function() {
             }
           }
         },
-        [_c("b-form-input")],
+        [_c("b-form-input", { attrs: { type: "number", min: "0" } })],
         1
       ),
       _vm._v(" "),
       _vm.event.playerA
-        ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n  JugadorA: " + _vm._s(_vm.event.playerA)),
-            _c("br"),
-            _vm._v("\n  payoutA: " + _vm._s(_vm.event.payoutA)),
-            _c("br"),
-            _vm._v(
-              "\n  earn: " +
-                _vm._s(
-                  Math.round(_vm.bettingAmmount * _vm.event.payoutA * 100) / 100
-                ) +
-                "\n"
-            )
-          ])
+        ? _c(
+            "p",
+            { staticClass: "card-text" },
+            [
+              _vm._v("\n  JugadorA: " + _vm._s(_vm.event.playerA)),
+              _c("br"),
+              _vm._v("\n  Indice: " + _vm._s(_vm.event.payoutA)),
+              _c("br"),
+              _vm._v(" "),
+              _c("b-alert", { attrs: { show: "", variant: "primary" } }, [
+                _vm._v(
+                  "Ganancia: " +
+                    _vm._s(
+                      Math.round(_vm.bettingAmmount * _vm.event.payoutA * 100) /
+                        100
+                    ) +
+                    " $"
+                )
+              ])
+            ],
+            1
+          )
         : _vm._e(),
       _vm._v(" "),
       _vm.event.playerB
-        ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n  JugadorB: " + _vm._s(_vm.event.playerB)),
-            _c("br"),
-            _vm._v("\n  payoutB: " + _vm._s(_vm.event.payoutB)),
-            _c("br"),
-            _vm._v(
-              "\n  earn: " +
-                _vm._s(
-                  Math.round(_vm.bettingAmmount * _vm.event.payoutB * 100) / 100
-                ) +
-                "\n"
-            )
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.event.payoutDraw
-        ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n  Empate: " + _vm._s(_vm.event.payoutDraw) + "\n")
-          ])
+        ? _c(
+            "p",
+            { staticClass: "card-text" },
+            [
+              _vm._v("\n  JugadorB: " + _vm._s(_vm.event.playerB)),
+              _c("br"),
+              _vm._v("\n  Indice: " + _vm._s(_vm.event.payoutB)),
+              _c("br"),
+              _vm._v(" "),
+              _c("b-alert", { attrs: { show: "", variant: "primary" } }, [
+                _vm._v(
+                  "Ganancia: " +
+                    _vm._s(
+                      Math.round(_vm.bettingAmmount * _vm.event.payoutB * 100) /
+                        100
+                    ) +
+                    " $"
+                )
+              ])
+            ],
+            1
+          )
         : _vm._e(),
       _vm._v(" "),
       !_vm.modal_mode

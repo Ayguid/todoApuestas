@@ -13,7 +13,7 @@ class="mb-2">
 </p>
 
 
-<b-input-group v-if="!modal_mode" @input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
+<b-input-group v-if="!modal_mode" @input="bettingAmmount = $event.target.value" size="lg" prepend="$" append="">
   <b-form-input type="number" min="0"></b-form-input>
 </b-input-group>
 
@@ -38,7 +38,7 @@ class="mb-2">
 
   <select class="" name="">
     <option v-if="event.draw" value="">Empate</option>
-    <option v-for="team in event.teams" value="">{{team.name}}</option>
+    <option v-for="team in event.teams" value="">Gana: {{team.name}}</option>
   </select>
 
 

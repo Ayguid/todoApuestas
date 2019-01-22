@@ -19,7 +19,7 @@
     },
     "event2":{
       "id":2,
-      "name":"SemiFinal Libertadores",
+      "name":"SemiFinal",
       "date":"2019-01-01",
       "time":"12:00:00",
       "location":"Bombonera",
@@ -34,7 +34,25 @@
           "name":"Independiente",
           "payout":1.7
         }]
-      }
+      },
+      "event3":{
+        "id":3,
+        "name":"Subs",
+        "date":"2019-01-01",
+        "time":"12:00:00",
+        "location":"Bombonera",
+        "draw":true,
+        "payoutDraw":1.1,
+        "teams":[
+          {
+            "name":"Ferro",
+            "payout":1.2
+          },
+          {
+            "name":"Gimnasia",
+            "payout":1.7
+          }]
+        }
 
 
 

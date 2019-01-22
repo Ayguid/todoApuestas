@@ -1,40 +1,50 @@
 <template>
-  <!--
-  img-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSu2GnYwFWcHQIuurHch4V5P5ss4m5WybO4XQ9x6wACKywij2h"
-  img-alt="Image"
-  img-top
-  img-fluid
--->
+<div class="">
+
+
 <b-card :title="event.name"
 tag="article"
 class="mb-2">
-<img :src="`images/`+event.playerA+`.png`" alt="" width="25%">
-<img :src="`images/`+event.playerB+`.png`" alt="" width="25%">
+
+<img v-for="team in event.teams" :src="`images/`+team.name+`.png`" alt="" width="25%">
+
 <p v-if="event.date" class="card-text">
   Fecha: {{event.date}}
 </p>
 
-<b-input-group @input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
+
+<b-input-group v-if="!modal_mode" @input="bettingAmmount = $event.target.value" size="lg" prepend="$" append=".00">
   <b-form-input type="number" min="0"></b-form-input>
 </b-input-group>
 
+<!-- <p v-html="eventOk.teams"></p> -->
 
-<p v-if="event.playerA" class="card-text">
-  JugadorA: {{event.playerA}}<br>
-  Indice: {{event.payoutA}}<br>
-  <b-alert show variant="primary">Ganancia: {{(Math.round((bettingAmmount * event.payoutA) * 100) / 100)}} $</b-alert>
+<p v-for="team in event.teams" class="card-text">
+  {{team.name}}
+ <b-alert v-if="!modal_mode" show variant="primary">Ganancia: {{(Math.round((bettingAmmount * team.payout) * 100) / 100)}} $</b-alert>
 </p>
-<p v-if="event.playerB" class="card-text">
-  JugadorB: {{event.playerB}}<br>
-  Indice: {{event.payoutB}}<br>
-  <b-alert show variant="primary">Ganancia: {{(Math.round((bettingAmmount * event.payoutB) * 100) / 100)}} $</b-alert>
+
+<p v-if="event.draw" class="card-text">Empate
+  <b-alert v-if="!modal_mode" show variant="primary">Ganancia: {{(Math.round((bettingAmmount * event.payoutDraw) * 100) / 100)}} $</b-alert>
 </p>
 
 
 <b-button v-if="!modal_mode" variant="primary" @click="emitEvent(event)">Ver Mas</b-button>
+<b-button v-if="$root.authuser" variant="primary">Apostar</b-button>
 
 </b-card>
 
+<div v-if="modal_mode" class="">
+
+  <select class="" name="">
+    <option v-if="event.draw" value="">Empate</option>
+    <option v-for="team in event.teams" value="">{{team.name}}</option>
+  </select>
+
+
+</div>
+
+</div>
 </template>
 
 
@@ -42,9 +52,9 @@ class="mb-2">
 
 <script>
 import { EventBus } from '../event-bus.js';
-
 export default {
   props: ["event", "modal_mode"],
+
   data () {
     return {
       bettingAmmount:'',
@@ -53,18 +63,14 @@ export default {
   methods: {
     emitEvent: function(event){
       EventBus.$emit('push-event', event);
+      // console.log(event);
     },
+  },
+  computed: {
 
   },
-//   computed: {
-//   // a computed getter
-//   reversedMessage: function () {
-//     // `this` points to the vm instance
-//     return this.message.split('').reverse().join('')
-//   }
-// },
   mounted() {
-    console.log('this.events')
+    // console.log(this.event.teams.playerA);
   }
 }
 </script>

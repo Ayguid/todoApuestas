@@ -32,8 +32,6 @@
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
   /* display: none; */
 }
-
-
 /* Modal Content (image) */
 .modal-content {
   margin: auto;
@@ -41,7 +39,6 @@
   width: 50%;
   max-width: 700px;
 }
-
 /* Caption of Modal Image */
 #caption {
   margin: auto;
@@ -53,26 +50,21 @@
   padding: 10px 0;
   height: 150px;
 }
-
 /* Add Animation */
 .modal-content, #caption {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
-
   animation-duration: 0.3s;
 }
-
 @-webkit-keyframes zoom {
   from {-webkit-transform:scale(0)}
   to {-webkit-transform:scale(1)}
 }
-
 @keyframes zoom {
   from {transform:scale(0)}
   to {transform:scale(1)}
 }
-
 /* The Close Button */
 .close {
   position: absolute;
@@ -83,14 +75,12 @@
   font-weight: bold;
   transition: 0.3s;
 }
-
 .close:hover,
 .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
 }
-
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
   .modal-content {
@@ -105,8 +95,10 @@
 <script>
 export default {
   props:['modalevent'],
+
+
   mounted() {
-    console.log('modal.')
+
   }
 }
 </script>

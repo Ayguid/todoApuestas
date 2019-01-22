@@ -10,7 +10,7 @@
       </b-row>
 
       <b-card-group columns>
-        <event-component v-for="event in events" :key="event.id" :event="event"></event-component>
+        <event-component v-for="event in events" :key="event.id" :event="event "></event-component>
       </b-card-group>
 
     </b-container>
@@ -31,10 +31,9 @@ export default {
       events:'',
     }
   },
-
-
   methods: {
     showEvent: function(event){
+      console.log(event);
       var modal = document.getElementById('modal');
       modal.style.display = "block";
       var span = document.getElementsByClassName("close")[0];
@@ -49,9 +48,8 @@ export default {
       });
     },
   },
-
-
   mounted() {
+    // console.log(this.$root.authuser);
     EventBus.$on('push-event', this.showEvent);
     this.getEvents();
   }

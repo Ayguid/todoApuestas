@@ -6,7 +6,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <script>
+   window.Laravel = {!! json_encode([
+       'csrfToken' => csrf_token(),
+       'apiToken' => $currentUser->api_token ?? null,
+       'authuser' => Auth::user(),
+       // 'user' =>  Auth::user() ? App\User::findOrFail(Auth::user()->id)->userMainData() : Auth::user(),
+       // 'user' =>  Auth::user() ? Auth::user()->userMainData() : Auth::user(),
+       // 'admin' => Auth::guard('admin')->check(),
+   ]) !!};
+</script>
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -51,7 +60,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->fname }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

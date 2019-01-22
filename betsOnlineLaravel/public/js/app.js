@@ -1806,6 +1806,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["event", "modal_mode"],
@@ -1816,18 +1826,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     emitEvent: function emitEvent(event) {
-      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('push-event', event);
+      _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$emit('push-event', event); // console.log(event);
     }
   },
-  //   computed: {
-  //   // a computed getter
-  //   reversedMessage: function () {
-  //     // `this` points to the vm instance
-  //     return this.message.split('').reverse().join('')
-  //   }
-  // },
-  mounted: function mounted() {
-    console.log('this.events');
+  computed: {},
+  mounted: function mounted() {// console.log(this.event.teams.playerA);
   }
 });
 
@@ -1936,21 +1939,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['modalevent'],
-  mounted: function mounted() {
-    console.log('modal.');
-  }
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -2132,6 +2123,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     showEvent: function showEvent(event) {
+      console.log(event);
       var modal = document.getElementById('modal');
       modal.style.display = "block";
       var span = document.getElementsByClassName("close")[0];
@@ -2151,6 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    // console.log(this.$root.authuser);
     _event_bus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on('push-event', this.showEvent);
     this.getEvents();
   }
@@ -22556,7 +22549,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.modal{\n  display: none;\n  position: fixed; /* Stay in place */\n  z-index: 120; /* Sit on top */\n  padding-top: 100px; /* Location of the box */\n  left: 0;\n  top: 0;\n  width: 100%; /* Full width */\n  height: 100%; /* Full height */\n  overflow: auto; /* Enable scroll if needed */\n  background-color: rgb(0,0,0); /* Fallback color */\n  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */\n  /* display: none; */\n}\n\n\n/* Modal Content (image) */\n.modal-content {\n  margin: auto;\n  display: block;\n  width: 50%;\n  max-width: 700px;\n}\n\n/* Caption of Modal Image */\n#caption {\n  margin: auto;\n  display: block;\n  width: 80%;\n  max-width: 700px;\n  text-align: center;\n  color: #ccc;\n  padding: 10px 0;\n  height: 150px;\n}\n\n/* Add Animation */\n.modal-content, #caption {\n  -webkit-animation-name: zoom;\n  -webkit-animation-duration: 0.6s;\n  animation-name: zoom;\n\n  -webkit-animation-duration: 0.3s;\n\n          animation-duration: 0.3s;\n}\n@-webkit-keyframes zoom {\nfrom {-webkit-transform:scale(0)}\nto {-webkit-transform:scale(1)}\n}\n@keyframes zoom {\nfrom {-webkit-transform:scale(0);transform:scale(0)}\nto {-webkit-transform:scale(1);transform:scale(1)}\n}\n\n/* The Close Button */\n.close {\n  position: absolute;\n  top: 15px;\n  right: 35px;\n  color: #f1f1f1;\n  font-size: 40px;\n  font-weight: bold;\n  transition: 0.3s;\n}\n.close:hover,\n.close:focus {\n  color: #bbb;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n/* 100% Image Width on Smaller Screens */\n@media only screen and (max-width: 700px){\n.modal-content {\n    width: 100%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.modal{\n  display: none;\n  position: fixed; /* Stay in place */\n  z-index: 120; /* Sit on top */\n  padding-top: 100px; /* Location of the box */\n  left: 0;\n  top: 0;\n  width: 100%; /* Full width */\n  height: 100%; /* Full height */\n  overflow: auto; /* Enable scroll if needed */\n  background-color: rgb(0,0,0); /* Fallback color */\n  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */\n  /* display: none; */\n}\n/* Modal Content (image) */\n.modal-content {\n  margin: auto;\n  display: block;\n  width: 50%;\n  max-width: 700px;\n}\n/* Caption of Modal Image */\n#caption {\n  margin: auto;\n  display: block;\n  width: 80%;\n  max-width: 700px;\n  text-align: center;\n  color: #ccc;\n  padding: 10px 0;\n  height: 150px;\n}\n/* Add Animation */\n.modal-content, #caption {\n  -webkit-animation-name: zoom;\n  -webkit-animation-duration: 0.6s;\n  animation-name: zoom;\n  -webkit-animation-duration: 0.3s;\n          animation-duration: 0.3s;\n}\n@-webkit-keyframes zoom {\nfrom {-webkit-transform:scale(0)}\nto {-webkit-transform:scale(1)}\n}\n@keyframes zoom {\nfrom {-webkit-transform:scale(0);transform:scale(0)}\nto {-webkit-transform:scale(1);transform:scale(1)}\n}\n/* The Close Button */\n.close {\n  position: absolute;\n  top: 15px;\n  right: 35px;\n  color: #f1f1f1;\n  font-size: 40px;\n  font-weight: bold;\n  transition: 0.3s;\n}\n.close:hover,\n.close:focus {\n  color: #bbb;\n  text-decoration: none;\n  cursor: pointer;\n}\n/* 100% Image Width on Smaller Screens */\n@media only screen and (max-width: 700px){\n.modal-content {\n    width: 100%;\n}\n}\n", ""]);
 
 // exports
 
@@ -55329,108 +55322,144 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-card",
-    { staticClass: "mb-2", attrs: { title: _vm.event.name, tag: "article" } },
+    "div",
+    {},
     [
-      _c("img", {
-        attrs: {
-          src: "images/" + _vm.event.playerA + ".png",
-          alt: "",
-          width: "25%"
-        }
-      }),
-      _vm._v(" "),
-      _c("img", {
-        attrs: {
-          src: "images/" + _vm.event.playerB + ".png",
-          alt: "",
-          width: "25%"
-        }
-      }),
-      _vm._v(" "),
-      _vm.event.date
-        ? _c("p", { staticClass: "card-text" }, [
-            _vm._v("\n  Fecha: " + _vm._s(_vm.event.date) + "\n")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
       _c(
-        "b-input-group",
+        "b-card",
         {
-          attrs: { size: "lg", prepend: "$", append: ".00" },
-          on: {
-            input: function($event) {
-              _vm.bettingAmmount = $event.target.value
-            }
-          }
+          staticClass: "mb-2",
+          attrs: { title: _vm.event.name, tag: "article" }
         },
-        [_c("b-form-input", { attrs: { type: "number", min: "0" } })],
-        1
+        [
+          _vm._l(_vm.event.teams, function(team) {
+            return _c("img", {
+              attrs: {
+                src: "images/" + team.name + ".png",
+                alt: "",
+                width: "25%"
+              }
+            })
+          }),
+          _vm._v(" "),
+          _vm.event.date
+            ? _c("p", { staticClass: "card-text" }, [
+                _vm._v("\n  Fecha: " + _vm._s(_vm.event.date) + "\n")
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.modal_mode
+            ? _c(
+                "b-input-group",
+                {
+                  attrs: { size: "lg", prepend: "$", append: ".00" },
+                  on: {
+                    input: function($event) {
+                      _vm.bettingAmmount = $event.target.value
+                    }
+                  }
+                },
+                [_c("b-form-input", { attrs: { type: "number", min: "0" } })],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm._l(_vm.event.teams, function(team) {
+            return _c(
+              "p",
+              { staticClass: "card-text" },
+              [
+                _vm._v("\n  " + _vm._s(team.name) + "\n "),
+                !_vm.modal_mode
+                  ? _c("b-alert", { attrs: { show: "", variant: "primary" } }, [
+                      _vm._v(
+                        "Ganancia: " +
+                          _vm._s(
+                            Math.round(_vm.bettingAmmount * team.payout * 100) /
+                              100
+                          ) +
+                          " $"
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          }),
+          _vm._v(" "),
+          _vm.event.draw
+            ? _c(
+                "p",
+                { staticClass: "card-text" },
+                [
+                  _vm._v("Empate\n  "),
+                  !_vm.modal_mode
+                    ? _c(
+                        "b-alert",
+                        { attrs: { show: "", variant: "primary" } },
+                        [
+                          _vm._v(
+                            "Ganancia: " +
+                              _vm._s(
+                                Math.round(
+                                  _vm.bettingAmmount *
+                                    _vm.event.payoutDraw *
+                                    100
+                                ) / 100
+                              ) +
+                              " $"
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ],
+                1
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          !_vm.modal_mode
+            ? _c(
+                "b-button",
+                {
+                  attrs: { variant: "primary" },
+                  on: {
+                    click: function($event) {
+                      _vm.emitEvent(_vm.event)
+                    }
+                  }
+                },
+                [_vm._v("Ver Mas")]
+              )
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.$root.authuser
+            ? _c("b-button", { attrs: { variant: "primary" } }, [
+                _vm._v("Apostar")
+              ])
+            : _vm._e()
+        ],
+        2
       ),
       _vm._v(" "),
-      _vm.event.playerA
-        ? _c(
-            "p",
-            { staticClass: "card-text" },
-            [
-              _vm._v("\n  JugadorA: " + _vm._s(_vm.event.playerA)),
-              _c("br"),
-              _vm._v("\n  Indice: " + _vm._s(_vm.event.payoutA)),
-              _c("br"),
-              _vm._v(" "),
-              _c("b-alert", { attrs: { show: "", variant: "primary" } }, [
-                _vm._v(
-                  "Ganancia: " +
-                    _vm._s(
-                      Math.round(_vm.bettingAmmount * _vm.event.payoutA * 100) /
-                        100
-                    ) +
-                    " $"
-                )
-              ])
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.event.playerB
-        ? _c(
-            "p",
-            { staticClass: "card-text" },
-            [
-              _vm._v("\n  JugadorB: " + _vm._s(_vm.event.playerB)),
-              _c("br"),
-              _vm._v("\n  Indice: " + _vm._s(_vm.event.payoutB)),
-              _c("br"),
-              _vm._v(" "),
-              _c("b-alert", { attrs: { show: "", variant: "primary" } }, [
-                _vm._v(
-                  "Ganancia: " +
-                    _vm._s(
-                      Math.round(_vm.bettingAmmount * _vm.event.payoutB * 100) /
-                        100
-                    ) +
-                    " $"
-                )
-              ])
-            ],
-            1
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      !_vm.modal_mode
-        ? _c(
-            "b-button",
-            {
-              attrs: { variant: "primary" },
-              on: {
-                click: function($event) {
-                  _vm.emitEvent(_vm.event)
-                }
-              }
-            },
-            [_vm._v("Ver Mas")]
-          )
+      _vm.modal_mode
+        ? _c("div", {}, [
+            _c(
+              "select",
+              { attrs: { name: "" } },
+              [
+                _vm.event.draw
+                  ? _c("option", { attrs: { value: "" } }, [_vm._v("Empate")])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.event.teams, function(team) {
+                  return _c("option", { attrs: { value: "" } }, [
+                    _vm._v(_vm._s(team.name))
+                  ])
+                })
+              ],
+              2
+            )
+          ])
         : _vm._e()
     ],
     1
@@ -66934,20 +66963,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-vue/dist/bootstrap-vue.css */ "./node_modules/bootstrap-vue/dist/bootstrap-vue.css");
 /* harmony import */ var bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_vue_dist_bootstrap_vue_css__WEBPACK_IMPORTED_MODULE_2__);
 /**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+* First we will load all of this project's JavaScript dependencies which
+* includes Vue and other libraries. It is a great starting point when
+* building robust, powerful web applications using Vue and Laravel.
+*/
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+* The following block of code may be used to automatically register your
+* Vue components. It will recursively scan this directory for the Vue
+* components and automatically register them with their "basename".
+*
+* Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+*/
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -66961,13 +66990,19 @@ Vue.component('eventmodal-component', __webpack_require__(/*! ./components/Event
 
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
 /**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+* Next, we will create a fresh Vue application instance and attach it to
+* the page. Then, you may begin adding components to this application
+* or customize the JavaScript scaffolding to fit your unique needs.
+*/
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: function data() {
+    return {
+      authuser: window.Laravel.authuser // authadmin:window.Laravel.admin,
+
+    };
+  }
 });
 
 /***/ }),
@@ -67328,15 +67363,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************!*\
   !*** ./resources/js/components/LandingComponent.vue ***!
   \******************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _LandingComponent_vue_vue_type_template_id_76a13c11___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LandingComponent.vue?vue&type=template&id=76a13c11& */ "./resources/js/components/LandingComponent.vue?vue&type=template&id=76a13c11&");
 /* harmony import */ var _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LandingComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/LandingComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _LandingComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -67366,7 +67400,7 @@ component.options.__file = "resources/js/components/LandingComponent.vue"
 /*!*******************************************************************************!*\
   !*** ./resources/js/components/LandingComponent.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

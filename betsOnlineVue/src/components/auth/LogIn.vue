@@ -15,7 +15,8 @@
 
 
       <div class="form-group">
-        <input type="email" class="form-control" name="email"  placeholder="Email" ><br>
+        <!-- solo anda si se pone username en el name en vez de email -->
+        <input type="email" class="form-control" name="username"  placeholder="Email" ><br>
       </div>
       <div class="form-group">
         <input type="password" class="form-control" name="password"  placeholder="password" v-model="password"><br>
@@ -64,11 +65,10 @@ export default {
       const config = {
         headers: {
           'content-type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
         }
       }
       var formData = new FormData(e.target);
-      axios.post('api/login', formData, config)
+      axios.post('/api/login', formData, config)
       .then(function (response) {
         if (response.status == "201" || response.status == "200") {
           console.log(response);

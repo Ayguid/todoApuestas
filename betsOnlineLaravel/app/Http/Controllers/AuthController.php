@@ -24,28 +24,7 @@ class AuthController extends Controller
 
   public function login(Request $request)
   {
-    
-    // $http= new \GuzzleHttp\Client;
-    // try {
-    //   $response = $http->post('http://localhost:8000/oauth/token', [
-    //     'form_params' => [
-    //       'grant_type'=> 'password',
-    //       'client_id'=> 2,
-    //       'client_secret'=> 'EF40r2FdKekgolbRX6TJqqXnqMFeDXgNz8Q50DSu',
-    //       'username'=> $request->username,
-    //       'password'=> $request->password,
-    //     ]
-    //   ]);
-    //   return $response->getBody();
-    // } catch (\GuzzleHttp\Exception\BadResponseException $e ) {
-    //   if ($e->getCode() == 400) {
-    //     return response()->json('Invalid Request. Please enter a username or a password', $e->getCode());
-    //   }
-    //   elseif ($e->getCode() == 401) {
-    //     return response()->json('You credentials are incorrect, please try again', $e->getCode());
-    //   }
-    //   return response()->json('Something went wrong on the server', $e->getCode());
-    // }
+
     // username del form es el email en passport....
     $request->request->add([
       'grant_type'=> 'password',

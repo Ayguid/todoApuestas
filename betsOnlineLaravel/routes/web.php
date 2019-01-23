@@ -22,4 +22,4 @@ Route::get('/', function () {
 // Route::get('/home', 'HomeController@index')->name('home');
 
 
-// Route::get('/{any}', 'ViewController@index')->where('any', '.*');
+Route::get('/{any}', 'ViewController@index')->where('any', '.*');

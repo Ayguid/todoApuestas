@@ -35,7 +35,7 @@ export default {
 
     getEvents: function(){
       axios.get('http://localhost:8000/eventList.json').then((response) => {
-            console.log(response);
+            // console.log(response);
             this.events = response.data;
       });
     },

@@ -50,12 +50,13 @@ new Vue({
   data(){
   return  {
     access_token: localStorage.getItem('access_token') || null,
+    user_data: JSON.parse(localStorage.getItem('user_data')) || null,
   }
 },
   mounted(){
 //     if('caches' in window) {
 //       console.log('siuppas');
 // }
-
+  // console.log(this.user_data);
   }
 });

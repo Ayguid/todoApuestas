@@ -13,14 +13,15 @@
           <b-dropdown-item href="#">RU</b-dropdown-item>
           <b-dropdown-item href="#">FA</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown v-if="!this.$root.access_token" text="Do it" right>
+        <b-nav-item-dropdown v-if="!$root.access_token" text="Do it" right>
           <b-dropdown-item href=""><router-link class=' ' :to="{ name: 'Register' }">Register</router-link></b-dropdown-item>
           <b-dropdown-item href=""><router-link class='' :to="{ name: 'Login' }">Login</router-link></b-dropdown-item>
 
         </b-nav-item-dropdown>
       </b-navbar-nav>
     </b-collapse>
-    <logout v-if="this.$root.access_token"></logout>
+    <b-nav-item v-if="$root.user_data" href=""><span class="white">{{$root.user_data.fname}}</span></b-nav-item>
+    <logout v-if="$root.access_token"></logout>
   </b-navbar>
 </div>
 </template>

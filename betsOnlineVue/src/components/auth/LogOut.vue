@@ -51,7 +51,9 @@ export default {
       .then(function (response) {
         if (response.status == "201" || response.status == "200") {
           localStorage.removeItem('access_token');
+          localStorage.removeItem('user_data');
           currentObj.$root.access_token= null;
+          currentObj.$root.user_data= null;
           console.log(response);
         }
       })

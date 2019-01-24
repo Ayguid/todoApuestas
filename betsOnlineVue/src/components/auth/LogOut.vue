@@ -6,17 +6,10 @@
 
 
 
-    <form class="" @submit.prevent="logOut" action="" method="post">
-
-      <div class="form-group">
-        <input type="submit" class="" name="Submit" value="LogOut">
-      </div>
-
-    </form>
-
-
-
-
+      <b-nav-form @submit.prevent="logOut" action="" method="post">
+        <!-- <b-form-input class="mr-sm-2" type="text" placeholder="Search"></b-form-input> -->
+        <b-button variant="outline-light" class="my-2 my-sm-0" type="submit">LogOut</b-button>
+      </b-nav-form>
 
 
 

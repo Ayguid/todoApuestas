@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    Home Landing Pages
+    <h2>Home</h2>
 
 
     <!-- {{events}} -->

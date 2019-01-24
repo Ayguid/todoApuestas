@@ -54,9 +54,6 @@ new Vue({
   }
 },
   mounted(){
-//     if('caches' in window) {
-//       console.log('siuppas');
-// }
-  // console.log(this.user_data);
+
   }
 });

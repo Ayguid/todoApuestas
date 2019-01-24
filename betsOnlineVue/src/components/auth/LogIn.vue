@@ -4,7 +4,7 @@
 
 
 
-
+<h2>Log In</h2>
 
 
 
@@ -85,7 +85,7 @@ export default {
       .then((response) => {
         currentObj.$root.user_data= response.data;
         localStorage.setItem('user_data', JSON.stringify(response.data));
-        console.log(response.data);
+        // console.log(response.data);
         currentObj.$router.push('/')
         e.target.reset();
       })
@@ -94,33 +94,11 @@ export default {
         alert(error);
       });
     },
-    askForUserData: function(token){
-      var currentObj = this;
-      const config = {
-        headers: {
-          'content-type': 'application/json',
-          'Authorization': 'Bearer '+token,
-        }
-      }
-      axios.get('/api/user', config)
-      .then(function (response) {
-        if (response.status == "201" || response.status == "200") {
-          // console.log(response.data);
-          return response.data;
-        }
-      })
-      .catch(function (error) {
-        currentObj.output = error;
-        alert(error);
-      });
-    },
-
-
   },
 
 
   mounted() {
-    // console.log(this.$router.go())
+
   }
 }
 </script>

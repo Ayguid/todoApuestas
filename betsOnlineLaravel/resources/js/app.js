@@ -45,4 +45,6 @@ const app = new Vue({
       // authadmin:window.Laravel.admin,
     }
   },
+
+  }
 });

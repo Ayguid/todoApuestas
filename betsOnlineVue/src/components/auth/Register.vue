@@ -74,6 +74,7 @@ export default {
         if (response.status == "201") {
           alert(JSON.stringify(response.data));
           e.target.reset();
+          currentObj.$router.push('/login');
         }
         if (response.data.errors) {
           alert(JSON.stringify(response.data.errors));

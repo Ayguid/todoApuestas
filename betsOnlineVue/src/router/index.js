@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Apuestas from '@/components/Apuestas'
+import Register from '@/components/auth/Register'
+import Login from '@/components/auth/LogIn'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -13,9 +15,32 @@ export default new Router({
       component: Home
     },
     {
-      path: '/apuestas',
-      name: 'Apuestas',
-      component: Apuestas
+      path: '/register',
+      name: 'Register',
+      component: Register,
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('access_token')) {
+          next('/')
+        }
+        else{
+          next()
+        }
+      }
     },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login,
+      beforeEnter: (to, from, next) => {
+        if (localStorage.getItem('access_token')) {
+          next('/')
+        }
+        else{
+          next()
+        }
+      }
+    },
+
+
   ]
 })

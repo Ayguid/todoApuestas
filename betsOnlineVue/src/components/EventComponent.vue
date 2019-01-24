@@ -29,8 +29,8 @@ class="mb-2">
 </p>
 
 
-<b-button v-if="!modal_mode" variant="primary" @click="emitEvent(event)">Ver Mas</b-button>
-<b-button v-if="$root.authuser" variant="primary">Apostar</b-button>
+<!-- <b-button v-if="!modal_mode" variant="primary" @click="emitEvent(event)">Ver Mas</b-button> -->
+<b-button v-if="$root.access_token" variant="primary">Apostar</b-button>
 
 </b-card>
 

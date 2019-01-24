@@ -23,3 +23,7 @@ Route::get('/', function () {
 
 
 Route::get('/{any}', 'ViewController@index')->where('any', '.*');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

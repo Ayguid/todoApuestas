@@ -1,80 +1,41 @@
 <template>
-  <div class="">
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="#">
+  <div>
+  <b-navbar type="dark" variant="primary" toggleable>
+    <b-navbar-toggle target="nav_dropdown_collapse"></b-navbar-toggle>
+    <b-collapse is-nav id="nav_dropdown_collapse">
+      <b-navbar-nav>
+        <b-nav-item href=""><router-link class="white" :to="{ name: 'Home' }">Te Apuesto</router-link></b-nav-item>
 
-      <img src="../assets/logo.png" width="112" height="28">
-    </a>
+        <!-- Navbar dropdowns -->
+        <b-nav-item-dropdown text="Lang" right>
+          <b-dropdown-item href="#">EN</b-dropdown-item>
+          <b-dropdown-item href="#">ES</b-dropdown-item>
+          <b-dropdown-item href="#">RU</b-dropdown-item>
+          <b-dropdown-item href="#">FA</b-dropdown-item>
+        </b-nav-item-dropdown>
+        <b-nav-item-dropdown v-if="!this.$root.access_token" text="Do it" right>
+          <b-dropdown-item href=""><router-link class=' ' :to="{ name: 'Register' }">Register</router-link></b-dropdown-item>
+          <b-dropdown-item href=""><router-link class='' :to="{ name: 'Login' }">Login</router-link></b-dropdown-item>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <!-- <a class="navbar-item">
-        Home
-      </a> -->
-
-      <router-link class='navbar-item' :to="{ name: 'Home' }">Home</router-link>
-
-
-      <!-- <a class="navbar-item">
-        Apuestas
-      </a> -->
-      <router-link class='navbar-item' :to="{ name: 'Apuestas' }">Apuestas</router-link>
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Mas
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            Tu Cuenta
-          </a>
-          <a class="navbar-item">
-            Faq
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-
-
-            <!-- <login v-if="!this.$root.access_token"></login> -->
-            <!-- <register v-if="!this.$root.access_token"></register> -->
-            <!-- <logout v-if="this.$root.access_token"></logout> -->
-
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
-  </div>
+        </b-nav-item-dropdown>
+      </b-navbar-nav>
+    </b-collapse>
+    <logout v-if="this.$root.access_token"></logout>
+  </b-navbar>
+</div>
 </template>
-
+<style media="screen">
+  .white{
+    color:white;
+  }
+</style>
 <script>
-import login from './auth/LogIn'
 import logout from './auth/LogOut'
-import register from './auth/Register'
 
 export default {
+
   name: 'navbar',
-  components: { login, logout, register},
+  components: { logout },
   data () {
     return {
 
@@ -82,13 +43,3 @@ export default {
   }
 }
 </script>
-
-
-
-
-
-
-
-<style lang="scss">
-
-</style>

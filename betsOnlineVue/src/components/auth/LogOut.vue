@@ -9,7 +9,7 @@
     <form class="" @submit.prevent="logOut" action="" method="post">
 
       <div class="form-group">
-        <input type="submit" class="form-control" name="Submit" value="LogOut">
+        <input type="submit" class="" name="Submit" value="LogOut">
       </div>
 
     </form>

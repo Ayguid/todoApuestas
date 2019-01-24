@@ -30,7 +30,7 @@ class AuthController extends Controller
       'grant_type'=> 'password',
       'client_id'=> config('services.passport.client_id'),
       'client_secret'=> config('services.passport.client_secret'),
-      'email'=> $request->email,
+      'email'=> $request->username,
       'password'=> $request->password,
     ]);
     $tokenRequest = Request::create(

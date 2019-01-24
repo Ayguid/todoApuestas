@@ -3,27 +3,10 @@
 
 <div class="">
 
-<register v-if="!this.$root.access_token"></register>
-<br>
-<br>
-<br>
-<br>
-<br>
-<login v-if="!this.$root.access_token"></login>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<logout v-if="this.$root.access_token"></logout>
-  <!-- <div class="container">
-    <navbar></navbar>
-  </div> -->
 
+<navbar></navbar>
 
-    <!-- <img src="./assets/tits.gif"> -->
-    <!-- <router-view/> -->
+    <router-view/>
 
 
 
@@ -34,14 +17,11 @@
 </template>
 
 <script>
-import register from './components/auth/Register'
-import login from './components/auth/LogIn'
-import logout from './components/auth/LogOut'
 
 
 export default {
   name: 'App',
-  components: { register, login, logout},
+
 }
 </script>
 

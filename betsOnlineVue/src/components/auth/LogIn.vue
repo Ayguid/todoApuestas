@@ -22,10 +22,10 @@
         <input type="password" class="form-control" name="password"  placeholder="password" v-model="password"><br>
       </div>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label class="form-check-label" for="remember_me">Remember Me</label>
         <input id="remember_me" type="checkbox" class="form-control" name="remember_me"><br>
-      </div>
+      </div> -->
 
       <div class="form-group">
         <input type="submit" class="form-control" name="Submit" value="Submit">
@@ -51,7 +51,7 @@
 <script>
 
 export default {
-  name:'login',
+  name:'Login',
   data(){
     return  {
       email:'',
@@ -75,6 +75,7 @@ export default {
           currentObj.$root.access_token = response.data.access_token;
           localStorage.setItem('access_token', response.data.access_token);
           e.target.reset();
+          currentObj.$router.push('/')
         }
 
       })
@@ -89,7 +90,7 @@ export default {
 
 
   mounted() {
-    // console.log('Component mounted.')
+    // console.log(this.$router.go())
   }
 }
 </script>

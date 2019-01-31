@@ -9,9 +9,9 @@
 
 
 
-      <b-card-group columns>
+      <!-- <b-card-group columns>
         <event-component v-for="event in events" :key="event.id" :event="event "></event-component>
-      </b-card-group>
+      </b-card-group> -->
 
     </b-container>
 

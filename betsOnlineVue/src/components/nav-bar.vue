@@ -11,9 +11,9 @@
 
       <b-navbar-nav v-if="!$root.access_token">
         <b-nav-item :to="{ name: 'Register' }">Register</b-nav-item>
+        <b-nav-item :to="{ name: 'Login' }">Login</b-nav-item>
         <!-- <router-link class='block' :to="{ name: 'Register' }">Register</router-link> -->
         <!-- <router-link class='block' :to="{ name: 'Login' }">Login</router-link> -->
-        <b-nav-item :to="{ name: 'Login' }">Login</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

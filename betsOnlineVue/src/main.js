@@ -34,7 +34,7 @@ window.axios.defaults.baseURL = 'http://localhost:8000'
 Vue.prototype.$http = window.axios
 
 
-import store from './store';
+
 
 
 window.eventBus = new Vue()
@@ -45,7 +45,6 @@ window.eventBus = new Vue()
 new Vue({
   el: '#app',
   router,
-  store,
   components: { App },
   template: '<App/>',
   data(){

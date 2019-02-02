@@ -2,7 +2,7 @@
   <div class="">
     <h2>Register</h2>
 
-    <form class="" @submit="formRegister" action="" method="post">
+    <form class="" @submit.prevent="formRegister" action="" method="post">
 
       <div class="form-group">
         <input type="text" class="form-control" name="fname" value=""placeholder="Nombre"><br>
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import {register_helper} from "../../auth_js/register_helper.js"
 export default {
   data(){
     return  {
@@ -57,32 +58,8 @@ export default {
     }
   },
   methods: {
-
     formRegister: function(e) {
-      e.preventDefault();
-      var currentObj = this;
-      const config = {
-        headers: {
-          'content-type': 'application/json',
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      }
-      var formData = new FormData(e.target);
-      axios.post('/api/register', formData, config)
-      .then(function (response) {
-        // console.log(response);
-        if (response.status == "201") {
-          alert(JSON.stringify(response.data));
-          e.target.reset();
-          currentObj.$router.push('/login');
-        }
-        if (response.data.errors) {
-          alert(JSON.stringify(response.data.errors));
-        }
-      })
-      .catch(function (error) {
-        currentObj.output = error;
-      });
+      register_helper.register(e, this);
     },
 
 

@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Register from '@/components/auth/Register'
-import Login from '@/components/auth/LogIn'
+import Home from '@/views/Home'
+import Register from '@/views/Register'
+import Login from '@/views/Login'
 
 Vue.use(Router)
+
 
 export default new Router({
   mode: 'history',
@@ -40,7 +41,5 @@ export default new Router({
         }
       }
     },
-
-
   ]
 })

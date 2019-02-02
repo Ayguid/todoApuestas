@@ -13,13 +13,14 @@
     "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
     "cxlt-vue2-toastr": "^1.1.0",
+    "idb": "^3.0.2",
     "install": "^0.12.2",
     "module": "^1.2.5",
     "node-sass": "^4.11.0",
     "register-service-worker": "^1.5.2",
     "sass-loader": "^6.0.7",
     "sw-precache-webpack-plugin": "^0.11.5",
-    "vee-validate": "^2.1.5",
+    "vee-validate": "^2.1.7",
     "vue": "^2.5.22",
     "vue-router": "^3.0.2",
     "vuex": "^3.1.0"
@@ -57,11 +58,10 @@
     "vue-loader": "^13.7.3",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.22",
-    "webpack": "^3.12.0",
-    "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^2.11.3",
-    "webpack-merge": "^4.2.1"
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-merge": "^4.1.0"
   },
   "engines": {
     "node": ">= 6.0.0",

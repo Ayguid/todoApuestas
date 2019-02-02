@@ -61,7 +61,7 @@ import logout from './auth/LogOut'
 
 export default {
 
-  name: 'navbar',
+
   components: { logout },
   data () {
     return {
